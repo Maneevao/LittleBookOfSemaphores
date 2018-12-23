@@ -1,0 +1,38 @@
+\documentclass{book}
+
+\usepackage{url}
+\usepackage{color}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
+\newcommand{\theversion}{Version 2.2.1}
+
+\date{\theversion}
+\author{Allen B. Downey}
+\title{The Little Book of Semaphores}
+
+\newcommand{\blankpage}{\newpage}
+\newcommand{\clearemptydoublepage}{\newpage\cleardoublepage}
+
+\pagestyle{fancyplain}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
+
+\lhead[\fancyplain{}{\bfseries\thepage}]%
+      {\fancyplain{}{\bfseries\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]%
+      {\fancyplain{}{\bfseries\thepage}}
+\cfoot{}
+
+% Commands that control the appearance of the listings
+\definecolor{light-gray}{gray}{0.95}
+
+\lstset{basicstyle=\tt, frame=single, 
+backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
+numbers=left, numberstyle=\tiny, numbersep=10pt}
+
+\makeindex % Заменить на toc
