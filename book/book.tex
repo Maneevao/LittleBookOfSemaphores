@@ -35,4 +35,27 @@
 backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
 numbers=left, numberstyle=\tiny, numbersep=10pt}
 
-\makeindex % Заменить на toc
+\makeindex
+
+\begin{document}
+	\maketitle
+
+	\input{copyrights/en.tex}
+
+	\input{preface/en.tex}
+	\input{introduction/en.tex}
+
+	\input{semaphores/en.tex}
+	\input{basicPatterns/en.tex}
+
+	\input{classicProblem/en.tex}
+	\input{lessClassicProblem/en.tex}
+	\input{notSoClassicProblem/en.tex}
+	\input{notRemotely/en.tex}
+
+	\input{syncPython/en.tex}
+	\input{syncC/en.tex}
+
+	\input{cleanPythonThreads/en.tex}
+	\input{cleanPosixThreads/en.tex}
+\end{document}

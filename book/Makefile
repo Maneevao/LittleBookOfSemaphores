@@ -1,7 +1,11 @@
-BUILDDIR = `pwd`/build
+TEX  = xelatex
+
+BUILDDIR = build
 
 all:
-	make -C en BUILDDIR=$(BUILDDIR)/en
+	mkdir -p $(BUILDDIR)
+	$(TEX) --output-directory=$(BUILDDIR) book.tex
+	$(TEX) --output-directory=$(BUILDDIR) book.tex
 
 clean:
-	rm -rf $(BUILDDIR)
+	$(RM) -r $(BUILDDIR)
