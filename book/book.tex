@@ -35,27 +35,31 @@
 backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
 numbers=left, numberstyle=\tiny, numbersep=10pt}
 
-\makeindex
+\providecommand{\lang}{en}
+\newcommand{\inc}[1]{\IfFileExists{#1/\lang}{\input{#1/\lang.tex}}{\input{#1/en.tex}}}
 
+\inc{pream}
+
+\makeindex
 \begin{document}
 	\maketitle
 
-	\input{copyrights/en.tex}
+	\inc{copyrights}
 
-	\input{preface/en.tex}
-	\input{introduction/en.tex}
+	\inc{preface}
+	\inc{introduction}
 
-	\input{semaphores/en.tex}
-	\input{basicPatterns/en.tex}
+	\inc{semaphores}
+	\inc{basicPatterns}
 
-	\input{classicProblem/en.tex}
-	\input{lessClassicProblem/en.tex}
-	\input{notSoClassicProblem/en.tex}
-	\input{notRemotely/en.tex}
+	\inc{classicProblem}
+	\inc{lessClassicProblem}
+	\inc{notSoClassicProblem}
+	\inc{notRemotely}
 
-	\input{syncPython/en.tex}
-	\input{syncC/en.tex}
+	\inc{syncPython}
+	\inc{syncC}
 
-	\input{cleanPythonThreads/en.tex}
-	\input{cleanPosixThreads/en.tex}
+	\inc{cleanPythonThreads}
+	\inc{cleanPosixThreads}
 \end{document}

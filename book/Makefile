@@ -2,10 +2,15 @@ TEX  = xelatex
 
 BUILDDIR = build
 
-all:
+en: $(BUILDDIR)
+	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{en}\input{book.tex}'
+	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{en}\input{book.tex}'
+ru: $(BUILDDIR)
+	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{ru}\input{book.tex}'
+	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{ru}\input{book.tex}'
+
+$(BUILDDIR):
 	mkdir -p $(BUILDDIR)
-	$(TEX) --output-directory=$(BUILDDIR) book.tex
-	$(TEX) --output-directory=$(BUILDDIR) book.tex
 
 clean:
 	$(RM) -r $(BUILDDIR)
