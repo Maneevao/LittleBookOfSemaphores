@@ -8,6 +8,9 @@
 \usepackage{listings}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 
+\usepackage{biblatex}
+	\addbibresource{biblio/book.bib}
+
 \newcommand{\theversion}{Version 2.2.1}
 
 \date{\theversion}
@@ -59,6 +62,10 @@ numbers=left, numberstyle=\tiny, numbersep=10pt}
 
 	\inc{syncPython}
 	\inc{syncC}
+
+	\newpage
+	\nocite{*}
+	\printbibliography
 
 	\inc{cleanPythonThreads}
 	\inc{cleanPosixThreads}
