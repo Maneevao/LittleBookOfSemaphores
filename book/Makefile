@@ -1,21 +1,31 @@
+#### Build environment #########################################################
+
 TEX  = xelatex
 BIB  = biber
+SUPPORTED_LANG = en ru fa
+
+#### Build entities ############################################################
 
 BUILDDIR = build
+TEX_SRC = book.tex
+BIB_SRC = $(TEX_SRC:.tex=)
 
-en: $(BUILDDIR)
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{en}\input{book.tex}'
-	$(BIB) --output-directory=$(BUILDDIR) book
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{en}\input{book.tex}'
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{en}\input{book.tex}'
-ru: $(BUILDDIR)
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{ru}\input{book.tex}'
-	$(BIB) --output-directory=$(BUILDDIR) book
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{ru}\input{book.tex}'
-	$(TEX) --output-directory=$(BUILDDIR) '\providecommand{\lang}{ru}\input{book.tex}'
-
+#### Build rules ###############################################################
+first:
+help:
+%:
+	@echo "Valid build targets:"
+	@echo $(SUPPORTED_LANG)
+	@echo "clean"
+$(SUPPORTED_LANG): $(BUILDDIR)
+	$(TEX) --output-directory=$(BUILDDIR) \
+			'\providecommand{\lang}{$@}\input{$(TEX_SRC)}'
+	$(BIB) --output-directory=$(BUILDDIR) $(BIB_SRC)
+	$(TEX) --output-directory=$(BUILDDIR) \
+			'\providecommand{\lang}{$@}\input{$(TEX_SRC)}'
+	$(TEX) --output-directory=$(BUILDDIR) \
+			'\providecommand{\lang}{$@}\input{$(TEX_SRC)}'
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
-
 clean:
 	$(RM) -r $(BUILDDIR)
