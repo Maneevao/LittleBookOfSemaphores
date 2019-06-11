@@ -8,6 +8,9 @@
 \usepackage{listings}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 
+\usepackage{biblatex}
+	\addbibresource{biblio/book.bib}
+
 \newcommand{\theversion}{Version 2.2.1}
 
 \date{\theversion}
@@ -35,4 +38,35 @@
 backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
 numbers=left, numberstyle=\tiny, numbersep=10pt}
 
-\makeindex % Заменить на toc
+\providecommand{\lang}{en}
+\newcommand{\inc}[1]{\IfFileExists{#1/\lang}{\input{#1/\lang.tex}}{\input{#1/en.tex}}}
+
+\inc{pream}
+
+\makeindex
+\begin{document}
+	\maketitle
+
+	\inc{copyrights}
+
+	\inc{preface}
+	\inc{introduction}
+
+	\inc{semaphores}
+	\inc{basicPatterns}
+
+	\inc{classicProblem}
+	\inc{lessClassicProblem}
+	\inc{notSoClassicProblem}
+	\inc{notRemotely}
+
+	\inc{syncPython}
+	\inc{syncC}
+
+	\newpage
+	\nocite{*}
+	\printbibliography
+
+	\inc{cleanPythonThreads}
+	\inc{cleanPosixThreads}
+\end{document}
