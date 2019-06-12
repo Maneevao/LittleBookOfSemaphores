@@ -39,17 +39,19 @@ backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
 numbers=left, numberstyle=\tiny, numbersep=10pt}
 
 \providecommand{\lang}{en}
-\newcommand{\inc}[1]{\IfFileExists{#1/\lang}{\input{#1/\lang.tex}}{\input{#1/en.tex}}}
+\newcommand{\inc}[1]{\IfFileExists{#1/\lang.tex}{\input{#1/\lang.tex}}{\input{#1/en.tex}}}
 
 \inc{pream}
 
 \makeindex
 \begin{document}
 	\maketitle
-
 	\inc{copyrights}
-
 	\inc{preface}
+	\tableofcontents
+	\clearemptydoublepage
+	\mainmatter
+
 	\inc{introduction}
 
 	\inc{semaphores}
