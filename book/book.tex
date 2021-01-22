@@ -8,14 +8,18 @@
 \usepackage{listings}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 
-\usepackage{biblatex}
-	\addbibresource{biblio/book.bib}
+\usepackage[backend=biber]{biblatex}
+	\addbibresource{book.bib}
 
 \newcommand{\theversion}{Version 2.2.1}
 
 \date{\theversion}
 \author{Allen B. Downey}
-\title{The Little Book of Semaphores}
+
+\usepackage{fontspec}
+	\setmainfont {Liberation Serif}
+	\newfontfamily\cyrillicfont {Liberation Serif}
+	\newfontfamily\cyrillicfonttt {Liberation Serif}
 
 \newcommand{\blankpage}{\newpage}
 \newcommand{\clearemptydoublepage}{\newpage\cleardoublepage}
@@ -25,9 +29,9 @@
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
 
-\lhead[\fancyplain{}{\bfseries\thepage}]%
+\lhead[\fancyplain{}{\bfseries\thepage}]
       {\fancyplain{}{\bfseries\rightmark}}
-\rhead[\fancyplain{}{\bfseries\leftmark}]%
+\rhead[\fancyplain{}{\bfseries\leftmark}]
       {\fancyplain{}{\bfseries\thepage}}
 \cfoot{}
 
@@ -41,10 +45,10 @@ numbers=left, numberstyle=\tiny, numbersep=10pt}
 \providecommand{\lang}{en}
 \newcommand{\inc}[1]{\IfFileExists{#1/\lang.tex}{\input{#1/\lang.tex}}{\input{#1/en.tex}}}
 
-\inc{pream}
 
 \makeindex
 \begin{document}
+	\inc{title}
 	\maketitle
 	\inc{copyrights}
 	\inc{preface}
@@ -65,10 +69,10 @@ numbers=left, numberstyle=\tiny, numbersep=10pt}
 	\inc{syncPython}
 	\inc{syncC}
 
+	\inc{cleanPythonThreads}
+	\inc{cleanPosixThreads}
+
 	\newpage
 	\nocite{*}
 	\printbibliography
-
-	\inc{cleanPythonThreads}
-	\inc{cleanPosixThreads}
 \end{document}

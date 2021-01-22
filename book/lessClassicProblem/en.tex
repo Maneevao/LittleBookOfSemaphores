@@ -174,7 +174,7 @@ Write a solution that guarantees these constraints.
 \clearemptydoublepage
 \subsection{Barbershop hint}
 
-%\lstinputlisting[title=Barbershop hint]{../code/barber.py.0}
+\lstinputlisting[title=Barbershop hint]{lessClassicProblem/barber1_0.py}
 
 {\tt n} is the total number of customers that can be in the shop:
 three in the waiting room and one in the chair.
@@ -198,7 +198,7 @@ This solution combines a scoreboard and two rendezvouses\footnote{The
   ``rendezvous,'' but the final ``s'' is pronounced.}.  Here is the
 code for customers:
 
-%\lstinputlisting[title=Barbershop solution (customer)]{../code/barber.py.1}
+\lstinputlisting[title=Barbershop solution (customer)]{lessClassicProblem/barber1_1.py}
 
 If there are $n$ customers in the shop any customers that
 arrive immediately invoke {\tt balk}.
@@ -207,7 +207,7 @@ Otherwise each customer signals {\tt customer} and waits on
 
 Here is the code for barbers:
 
-%\lstinputlisting[title=Barbershop solution (barber)]{../code/barber.py.2}
+\lstinputlisting[title=Barbershop solution (barber)]{lessClassicProblem/barber1_2.py}
 
 Each time a customer signals,
 the barber wakes, signals {\tt barber}, and gives one
@@ -248,7 +248,7 @@ semaphore.
 
 My solution uses a list of semaphores named {\tt queue}.
 
-%\lstinputlisting[title=FIFO barbershop hint]{../code/barber2.py.0}
+\lstinputlisting[title=FIFO barbershop hint]{lessClassicProblem/barber2_0.py}
 
 As each thread passes the turnstile, it creates a thread and puts it
 in the queue.
@@ -263,13 +263,13 @@ signals it.
 
 Here is the modified code for customers:
 
-%\lstinputlisting[title=FIFO barbershop solution (customer)]
-%{../code/barber2.py.1}
+\lstinputlisting[title=FIFO barbershop solution (customer)]
+{lessClassicProblem/barber2_1.py}
 
 And the code for barbers:
 
-%\lstinputlisting[title=FIFO barbershop solution (barber)]
-%{../code/barber2.py.2}
+\lstinputlisting[title=FIFO barbershop solution (barber)]
+{lessClassicProblem/barber2_2.py}
 
 Notice that the barber has to get {\tt mutex} to access the
 queue.
@@ -343,8 +343,8 @@ constraints for Hilzer's barbershop.
 
 Here are the variables I used in my solution:
 
-%\lstinputlisting[title=Hilzer's barbershop hint]
-%{../code/barber3.py.0}
+\lstinputlisting[title=Hilzer's barbershop hint]
+{lessClassicProblem/barber3_0.py}
 
 {\tt mutex} protects {\tt customers}, which keeps track of the
 number of customers in the shop, and {\tt queue1} which is a list
@@ -371,8 +371,7 @@ This solution is considerably more complex than I expected.  I
 am not sure if Hilzer had something simpler in mind, but here is the
 best I could do.
 
-%\lstinputlisting[title=Hilzer's barbershop solution (customer)]
-%{../code/barber3.py.1}
+\lstinputlisting[title=Hilzer's barbershop solution (customer)] {lessClassicProblem/barber3_1.py}
 
 The first paragraph is the same as in the previous solution.  When
 a customer arrives, it checks the counter and either balks or adds
@@ -384,8 +383,7 @@ sits on the couch and adds itself to the second queue.
 When it gets out of {\em that} queue, it gets a haircut, pays,
 and then exits.
 
-%\lstinputlisting[title=Hilzer's barbershop solution (barber)]
-%{../code/barber3.py.2}
+\lstinputlisting[title=Hilzer's barbershop solution (barber)] {lessClassicProblem/barber3_2.py}
 
 Each barber waits for a customer to enter, signals the customer's
 semaphore to get it out of queue, then waits for it to claim a seat
